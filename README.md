@@ -30,6 +30,8 @@ print(TFormatters.formatHour(now));
 ### 2. Formatage des Montants et Pourcentages
 
 ```dart
+import 'package:tformatter/tformatter.dart';
+
 void main() {
 // Formatage d'un montant avec devise
 print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'));
@@ -44,6 +46,8 @@ print(TFormatters.formatPercentage(0.875));
 ### 3. Validation des Entrées
 
 ```dart
+import 'package:tformatter/tformatter.dart';
+
 void main() {
 // Validation d'une adresse e-mail
 print(TFormatters.isValidEmail('test@example.com'));
@@ -62,6 +66,8 @@ print(TFormatters.isValidPassword('StrongP@ss1'));
 ### 4. Manipulation des Chaînes
 
 ```dart
+import 'package:tformatter/tformatter.dart';
+
 void main() {
 // Génération d'initiales
 print(TFormatters.generateInitials('John Doe'));
@@ -80,6 +86,8 @@ print(TFormatters.getFileExtension('document.pdf'));
 ### 5. Gestion des Durées
 
 ```dart
+import 'package:tformatter/tformatter.dart';
+
 void main() {
 final duration = Duration(hours: 2, minutes: 30);
 
@@ -92,6 +100,8 @@ print(TFormatters.durationToReadableText(duration));
 ### 6. Fonctionnalités Diverses
 
 ```dart
+import 'package:tformatter/tformatter.dart';
+
 void main() {
 // Masquage de données sensibles
 print(TFormatters.maskSensitiveData('1234567890', visibleChars: 4));
@@ -140,6 +150,7 @@ keyboardType: TextInputType.number,
 );
 ```
 
+```dart
 Liste Complète des Méthodes
 Formatage
 formatDate(DateTime date, {String pattern, String locale})
@@ -159,3 +170,4 @@ extractEmailDomain(String email)
 getFileExtension(String fileName)
 toHyperlink(String text, String url)
 generatePassword({int number})
+```
