@@ -1,15 +1,14 @@
 ## TFormatters
 
-Un package Flutter/Dart puissant pour le formatage, la validation, et la manipulation des données courantes telles que les dates, les heures, les devises, les numéros de téléphone, et bien plus.
+A powerful Flutter/Dart package for formatting, validation, and manipulation of common data types such as dates, times, currencies, phone numbers, and more.
 
-Caractéristiques Principales
-Formatage des dates, heures, et durées.
-Formatage des montants et pourcentages.
-Validation des e-mails, URL, numéros de téléphone, et mots de passe sécurisés.
-Manipulation avancée des chaînes : génération d'initiales, extraction d'extensions, et plus encore.
-Génération et validation d'identifiants uniques.
+- Formatting of dates, times, and durations.
+- Formatting of amounts and percentages.
+- Validation of emails, URLs, phone numbers, and secure passwords.
+- Advanced string manipulation: generating initials, extracting file extensions, and more.
+- Generation and validation of unique identifiers.
 
-### 1. Formatage des Dates et Heures
+### 1. Formatting Dates and Times
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -27,7 +26,7 @@ print(TFormatters.formatHour(now));
 }
 ```
 
-### 2. Formatage des Montants et Pourcentages
+### 2. Formatting Amounts and Percentages
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -43,7 +42,7 @@ print(TFormatters.formatPercentage(0.875));
 }
 ```
 
-### 3. Validation des Entrées
+### 3. Validating Inputs
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -63,7 +62,7 @@ print(TFormatters.isValidPassword('StrongP@ss1'));
 }
 ```
 
-### 4. Manipulation des Chaînes
+### 4. Manipulating Strings
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -83,7 +82,7 @@ print(TFormatters.getFileExtension('document.pdf'));
 }
 ```
 
-### 5. Gestion des Durées
+### 5. Managing Durations
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -97,7 +96,7 @@ print(TFormatters.durationToReadableText(duration));
 }
 ```
 
-### 6. Fonctionnalités Diverses
+### 6. Miscellaneous Features
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -114,11 +113,11 @@ print(TFormatters.formatFileSize(1048576));
 }
 ```
 
-### 7. Formatage Direct dans les Champs de Texte
+### 7. Direct Formatting in Text Fields
 
 Le package inclut des **`TextInputFormatters`** pour ajouter des masquages ou formatages dynamiques directement dans les champs de texte.
 
-#### Exemple : Formatter pour les devises
+#### Exemple : Currency Formatter
 
 ```dart
 import 'package:tformatters/input_formatters/currency_input_formatter.dart';
@@ -134,7 +133,7 @@ keyboardType: TextInputType.number,
 );
 ```
 
-#### Exemple : Masquage de texte
+#### Exemple : Masked Input
 
 ```dart
 import 'package:tformatters/input_formatters/masked_text_input_formatter.dart';
@@ -150,9 +149,11 @@ keyboardType: TextInputType.number,
 );
 ```
 
+### 8. Complete List of Methods
+
+Formatting
+
 ```dart
-Liste Complète des Méthodes
-Formatage
 formatDate(DateTime date, {String pattern, String locale})
 formatHour(DateTime date)
 formatCurrency(double amount, {String locale, String currencySymbol})
