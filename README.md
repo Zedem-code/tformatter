@@ -7,6 +7,7 @@ A powerful Flutter/Dart package for formatting, validation, and manipulation of 
 - Validation of emails, URLs, phone numbers, and secure passwords.
 - Advanced string manipulation: generating initials, extracting file extensions, and more.
 - Generation and validation of unique identifiers.
+- Credit Card Validation
 
 ### 1. Formatting Dates and Times
 
@@ -159,12 +160,11 @@ formatHour(DateTime date)
 formatCurrency(double amount, {String locale, String currencySymbol})
 formatPercentage(double value, {int decimalPlaces})
 formatDuration(Duration duration)
-Validation
+
 isValidEmail(String email)
 isValidUrl(String url)
 isValidPhoneNumber(String phoneNumber)
 isValidPassword(String password, {int minLength})
-Manipulation
 generateInitials(String fullName)
 maskSensitiveData(String data, {int visibleChars})
 extractEmailDomain(String email)
@@ -180,4 +180,7 @@ formatAddress(String street, String city, String country,{String postalCode = ''
 timeAgo(DateTime date, {String locale = 'en'})
 dateDifference(DateTime startDate, DateTime endDate)
 formatPhoneNumber(String phoneNumber);
+isValidCreditCard(String cardNumber)
+detectDataType(String input)
+getCardType(String cardNumber)
 ```

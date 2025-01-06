@@ -249,4 +249,42 @@ class TFormatters {
     return List.generate(length, (index) => chars[rand.nextInt(chars.length)])
         .join();
   }
+
+  /// Validation des cartes bancaires
+  /// Vérifie la validité des numéros avec l’algorithme de Luhn.
+  static bool isValidCreditCard(String cardNumber) {
+    cardNumber = cardNumber.replaceAll(RegExp(r'\s+'), '');
+    if (cardNumber.length < 13 || cardNumber.length > 19) return false;
+
+    int sum = 0;
+    bool alternate = false;
+    for (int i = cardNumber.length - 1; i >= 0; i--) {
+      int n = int.parse(cardNumber[i]);
+      if (alternate) {
+        n *= 2;
+        if (n > 9) n -= 9;
+      }
+      sum += n;
+      alternate = !alternate;
+    }
+    return sum % 10 == 0;
+  }
+
+  ///Detection automatique de type
+  static String detectDataType(String input) {
+    if (isValidEmail(input)) return 'Email';
+    if (isValidUrl(input)) return 'URL';
+    if (isValidPhoneNumber(input)) return 'Phone Number';
+    return 'Unknown';
+  }
+
+  ///Identification de type de carte
+  static String getCardType(String cardNumber) {
+    final cleanedNumber = cardNumber.replaceAll(RegExp(r'\D'), '');
+    if (cleanedNumber.startsWith('4')) return 'Visa';
+    if (RegExp(r'^5[1-5]').hasMatch(cleanedNumber)) return 'Mastercard';
+    if (RegExp(r'^3[47]').hasMatch(cleanedNumber)) return 'American Express';
+    if (cleanedNumber.startsWith('6')) return 'Discover';
+    return 'Unknown';
+  }
 }
