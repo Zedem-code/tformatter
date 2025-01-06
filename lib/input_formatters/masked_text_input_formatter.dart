@@ -2,29 +2,36 @@ import 'package:flutter/services.dart';
 
 class MaskedTextInputFormatter extends TextInputFormatter {
   final String mask;
-  final String separator;
 
-  MaskedTextInputFormatter({required this.mask, this.separator = '-'});
+  MaskedTextInputFormatter({required this.mask});
 
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    final text = newValue.text.replaceAll(separator, '');
-    String formatted = '';
-    int maskIndex = 0;
-    for (int i = 0; i < text.length; i++) {
-      if (maskIndex >= mask.length) break;
+    /// Récupérer uniquement les chiffres
+    final rawText = newValue.text.replaceAll(RegExp(r'[^0-9]'), '');
+    String formattedText = '';
+    int rawTextIndex = 0;
 
-      if (mask[maskIndex] == separator) {
-        formatted += separator;
-        maskIndex++;
+    /// Parcourir le masque et appliquer la mise en forme
+    for (int i = 0; i < mask.length; i++) {
+      if (rawTextIndex >= rawText.length) break;
+
+      final maskChar = mask[i];
+      if (maskChar == '#') {
+        /// Si le caractère du masque est un "#" (chiffre attendu)
+        formattedText += rawText[rawTextIndex];
+        rawTextIndex++;
+      } else {
+        /// Sinon, ajoutez les caractères fixes du masque (parenthèses, tirets, etc.)
+        formattedText += maskChar;
       }
-      formatted += text[i];
-      maskIndex++;
     }
+
+    /// Retourner le texte formaté
     return TextEditingValue(
-      text: formatted,
-      selection: TextSelection.collapsed(offset: formatted.length),
+      text: formattedText,
+      selection: TextSelection.collapsed(offset: formattedText.length),
     );
   }
 }

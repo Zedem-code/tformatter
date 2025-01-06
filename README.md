@@ -140,7 +140,7 @@ import 'package:tformatters/input_formatters/masked_text_input_formatter.dart';
 
 TextFormField(
 inputFormatters: [
-MaskedTextInputFormatter(mask: '####-####-####', separator: '-'),
+MaskedTextInputFormatter(mask: '####-####-####'),
 ],
 decoration: const InputDecoration(
 labelText: 'Numéro de carte',

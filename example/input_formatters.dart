@@ -32,7 +32,8 @@ class InputFormattersDemo extends StatelessWidget {
             TextFormField(
               inputFormatters: [
                 MaskedTextInputFormatter(
-                    mask: '####-####-####', separator: '-'),
+                  mask: '####-####-####',
+                ),
               ],
               decoration: const InputDecoration(
                 labelText: 'Masked Formatter (Card Number)',
