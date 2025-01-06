@@ -13,25 +13,18 @@ Génération et validation d'identifiants uniques.
 Installation
 Ajoutez le package à votre projet Flutter/Dart via pub.dev :
 
-bash
-Copier le code
-flutter pub add h_formatters
+flutter pub add tformatters
 Ou modifiez directement votre fichier pubspec.yaml :
 
-yaml
-Copier le code
+
 dependencies:
-h_formatters: ^1.0.0
+tformatters: ^1.0.0
 Puis, exécutez :
 
-bash
-Copier le code
-flutter pub get
-Utilisation de Base
+
 
 1. Formatage des Dates et Heures
-   dart
-   Copier le code
+
    import 'package:h_formatters/h_formatters.dart';
 
 void main() {
@@ -56,8 +49,7 @@ print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'
 print(TFormatters.formatPercentage(0.875));
 // Résultat : 87.50%
 } 3. Validation des Entrées
-dart
-Copier le code
+
 
 
 void main() {
@@ -120,8 +112,7 @@ Internationalisation (i18n)
 Le package prend en charge les formats locaux pour les dates, heures, et montants grâce à la bibliothèque intl.
 
 Exemple :
-dart
-Copier le code
+
 void main() {
   final now = DateTime.now();
 
@@ -147,21 +138,10 @@ maskSensitiveData(String data, {int visibleChars})
 extractEmailDomain(String email)
 getFileExtension(String fileName)
 toHyperlink(String text, String url)
+
+
 Contribution
 Nous accueillons vos suggestions et contributions ! Suivez ces étapes pour contribuer :
 
-Clonez le dépôt GitHub :
 
-bash
-Copier le code
-git clone https://github.com/your_username/h_formatters.git
-Créez une branche pour vos modifications :
-
-bash
-Copier le code
-git checkout -b feature/my-new-feature
-Soumettez une Pull Request.
-
-Licence
-Ce package est sous licence MIT. Vous êtes libre de l'utiliser et de le modifier selon vos besoins.
 ```
