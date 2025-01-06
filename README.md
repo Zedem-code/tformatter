@@ -11,7 +11,7 @@ Génération et validation d'identifiants uniques.
 
 ### 1. Formatage des Dates et Heures
 
-````dart
+```dart
 import 'package:tformatter/tformatter.dart';
 
 void main() {
@@ -24,9 +24,10 @@ print(TFormatters.formatDate(now, pattern: 'dd/MM/yyyy', locale: 'fr_FR'));
 // Formatage de l'heure
 print(TFormatters.formatHour(now));
 // Résultat : 14:30:15
-}```
+}
+```
 
- 2. Formatage des Montants et Pourcentages
+### 2. Formatage des Montants et Pourcentages
 
 ```dart
 void main() {
@@ -37,9 +38,11 @@ print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'
 // Formatage en pourcentage
 print(TFormatters.formatPercentage(0.875));
 // Résultat : 87.50%
-}```
+}
+```
 
- 3. Validation des Entrées
+### 3. Validation des Entrées
+
 ```dart
 void main() {
 // Validation d'une adresse e-mail
@@ -53,9 +56,11 @@ print(TFormatters.isValidUrl('https://example.com'));
 // Validation d'un mot de passe sécurisé
 print(TFormatters.isValidPassword('StrongP@ss1'));
 // Résultat : true
-}```
+}
+```
 
- 4. Manipulation des Chaînes
+### 4. Manipulation des Chaînes
+
 ```dart
 void main() {
 // Génération d'initiales
@@ -69,9 +74,11 @@ print(TFormatters.extractEmailDomain('user@example.com'));
 // Extraction de l'extension d'un fichier
 print(TFormatters.getFileExtension('document.pdf'));
 // Résultat : pdf
-}```
+}
+```
 
-5. Gestion des Durées
+### 5. Gestion des Durées
+
 ```dart
 void main() {
 final duration = Duration(hours: 2, minutes: 30);
@@ -79,9 +86,11 @@ final duration = Duration(hours: 2, minutes: 30);
 // Conversion d'une durée en texte lisible
 print(TFormatters.durationToReadableText(duration));
 // Résultat : 2 heures 30 minutes
-}```
+}
+```
 
-6. Fonctionnalités Diverses
+### 6. Fonctionnalités Diverses
+
 ```dart
 void main() {
 // Masquage de données sensibles
@@ -92,10 +101,10 @@ print(TFormatters.maskSensitiveData('1234567890', visibleChars: 4));
 print(TFormatters.formatFileSize(1048576));
 // Résultat : 1.0 MB
 
-}```
+}
+```
 
-7. Formatage Direct dans les Champs de Texte
-
+### 7. Formatage Direct dans les Champs de Texte
 
 Le package inclut des **`TextInputFormatters`** pour ajouter des masquages ou formatages dynamiques directement dans les champs de texte.
 
@@ -105,30 +114,31 @@ Le package inclut des **`TextInputFormatters`** pour ajouter des masquages ou fo
 import 'package:tformatters/input_formatters/currency_input_formatter.dart';
 
 TextFormField(
-  inputFormatters: [
-    CurrencyInputFormatter(locale: 'fr_FR', currencySymbol: '€'),
-  ],
-  decoration: const InputDecoration(
-    labelText: 'Montant',
-  ),
-  keyboardType: TextInputType.number,
+inputFormatters: [
+CurrencyInputFormatter(locale: 'fr_FR', currencySymbol: '€'),
+],
+decoration: const InputDecoration(
+labelText: 'Montant',
+),
+keyboardType: TextInputType.number,
 );
 ```
+
 #### Exemple : Masquage de texte
+
 ```dart
 import 'package:tformatters/input_formatters/masked_text_input_formatter.dart';
 
 TextFormField(
-  inputFormatters: [
-    MaskedTextInputFormatter(mask: '####-####-####', separator: '-'),
-  ],
-  decoration: const InputDecoration(
-    labelText: 'Numéro de carte',
-  ),
-  keyboardType: TextInputType.number,
-);```
-
-
+inputFormatters: [
+MaskedTextInputFormatter(mask: '####-####-####', separator: '-'),
+],
+decoration: const InputDecoration(
+labelText: 'Numéro de carte',
+),
+keyboardType: TextInputType.number,
+);
+```
 
 Liste Complète des Méthodes
 Formatage
@@ -149,7 +159,3 @@ extractEmailDomain(String email)
 getFileExtension(String fileName)
 toHyperlink(String text, String url)
 generatePassword({int number})
-
-
-
-````
