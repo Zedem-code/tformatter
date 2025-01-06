@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tformatter/tformatter.dart';
 
+import 'input_formatters.dart';
+
 void main() {
   runApp(const TFormattersExample());
 }
@@ -16,7 +18,12 @@ class TFormattersExample extends StatelessWidget {
         appBar: AppBar(
           title: const Text('TFormatters Example'),
           actions: [
-            TextButton(onPressed: () {}, child: Text('Input formatters'))
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const InputFormattersDemo()));
+                },
+                child: Text('Input formatters'))
           ],
         ),
         body: const TFormattersDemo(),
