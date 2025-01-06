@@ -15,6 +15,9 @@ class TFormattersExample extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('TFormatters Example'),
+          actions: [
+            TextButton(onPressed: () {}, child: Text('Input formatters'))
+          ],
         ),
         body: const TFormattersDemo(),
       ),
@@ -67,8 +70,6 @@ class TFormattersDemo extends StatelessWidget {
           Text('File Extension: ${TFormatters.getFileExtension(fileName)}'),
           Text(
               'Generated Initials: ${TFormatters.generateInitials("John Doe")}'),
-          const Divider(),
-
           const Divider(),
 
           // Example 6: Masking Sensitive Data

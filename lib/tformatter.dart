@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:intl/intl.dart';
 
@@ -228,5 +229,24 @@ class TFormatters {
 
   static List<String> extractHashtags(String text) {
     return RegExp(r'#\w+').allMatches(text).map((m) => m.group(0)!).toList();
+  }
+
+  static String formatFileSize(int bytes) {
+    const suffixes = ['B', 'KB', 'MB', 'GB', 'TB'];
+    int i = 0;
+    double size = bytes.toDouble();
+    while (size >= 1024 && i < suffixes.length - 1) {
+      size /= 1024;
+      i++;
+    }
+    return '${size.toStringAsFixed(1)} ${suffixes[i]}';
+  }
+
+  static String generatePassword({int length = 12}) {
+    const chars =
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#\$%^&*()';
+    final rand = Random();
+    return List.generate(length, (index) => chars[rand.nextInt(chars.length)])
+        .join();
   }
 }
