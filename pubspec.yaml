@@ -1,7 +1,7 @@
 name: tformatter
 description: "A package for formatting dates, currency, and other values."
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/Zedem-code/tformatter
 
 environment:
   sdk: ^3.6.0

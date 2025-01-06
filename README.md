@@ -38,22 +38,22 @@ void main() {
 final now = DateTime.now();
 
 // Formatage de la date
-print(HFormatters.formatDate(now, pattern: 'dd/MM/yyyy', locale: 'fr_FR'));
+print(TFormatters.formatDate(now, pattern: 'dd/MM/yyyy', locale: 'fr_FR'));
 // Résultat : 04/01/2025
 
 // Formatage de l'heure
-print(HFormatters.formatHour(now));
+print(TFormatters.formatHour(now));
 // Résultat : 14:30:15
 } 2. Formatage des Montants et Pourcentages
 dart
 Copier le code
 void main() {
 // Formatage d'un montant avec devise
-print(HFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'));
+print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'));
 // Résultat : 1 234,56 €
 
 // Formatage en pourcentage
-print(HFormatters.formatPercentage(0.875));
+print(TFormatters.formatPercentage(0.875));
 // Résultat : 87.50%
 } 3. Validation des Entrées
 dart
@@ -62,15 +62,15 @@ Copier le code
 
 void main() {
   // Validation d'une adresse e-mail
-  print(HFormatters.isValidEmail('test@example.com'));
+  print(TFormatters.isValidEmail('test@example.com'));
   // Résultat : true
 
   // Validation d'une URL
-  print(HFormatters.isValidUrl('https://example.com'));
+  print(TFormatters.isValidUrl('https://example.com'));
   // Résultat : true
 
   // Validation d'un mot de passe sécurisé
-  print(HFormatters.isValidPassword('StrongP@ss1'));
+  print(TFormatters.isValidPassword('StrongP@ss1'));
   // Résultat : true
 }
 
@@ -79,15 +79,15 @@ dart
 Copier le code
 void main() {
   // Génération d'initiales
-  print(HFormatters.generateInitials('John Doe'));
+  print(TFormatters.generateInitials('John Doe'));
   // Résultat : JD
 
   // Extraction du domaine d'une adresse e-mail
-  print(HFormatters.extractEmailDomain('user@example.com'));
+  print(TFormatters.extractEmailDomain('user@example.com'));
   // Résultat : example.com
 
   // Extraction de l'extension d'un fichier
-  print(HFormatters.getFileExtension('document.pdf'));
+  print(TFormatters.getFileExtension('document.pdf'));
   // Résultat : pdf
 }
 5. Gestion des Durées
@@ -97,7 +97,7 @@ void main() {
   final duration = Duration(hours: 2, minutes: 30);
 
   // Conversion d'une durée en texte lisible
-  print(HFormatters.durationToReadableText(duration));
+  print(TFormatters.durationToReadableText(duration));
   // Résultat : 2 heures 30 minutes
 }
 6. Fonctionnalités Diverses
@@ -105,15 +105,15 @@ dart
 Copier le code
 void main() {
   // Masquage de données sensibles
-  print(HFormatters.maskSensitiveData('1234567890', visibleChars: 4));
+  print(TFormatters.maskSensitiveData('1234567890', visibleChars: 4));
   // Résultat : ******7890
 
   // Formatage d'une taille de fichier
-  print(HFormatters.formatFileSize(1048576));
+  print(TFormatters.formatFileSize(1048576));
   // Résultat : 1.0 MB
 
   // Génération d'un lien hypertexte HTML
-  print(HFormatters.toHyperlink('Google', 'https://google.com'));
+  print(TFormatters.toHyperlink('Google', 'https://google.com'));
   // Résultat : <a href="https://google.com">Google</a>
 }
 Internationalisation (i18n)
@@ -126,8 +126,8 @@ void main() {
   final now = DateTime.now();
 
   // Formatage de la date dans différentes locales
-  print(HFormatters.formatDate(now, locale: 'en_US')); // Résultat : January 4, 2025
-  print(HFormatters.formatDate(now, locale: 'fr_FR')); // Résultat : 4 janvier 2025
+  print(TFormatters.formatDate(now, locale: 'en_US')); // Résultat : January 4, 2025
+  print(TFormatters.formatDate(now, locale: 'fr_FR')); // Résultat : 4 janvier 2025
 }
 Liste Complète des Méthodes
 Formatage
