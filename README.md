@@ -8,24 +8,23 @@ Formatage des dates, heures, et durées.
 Formatage des montants et pourcentages.
 Validation des e-mails, URL, numéros de téléphone, et mots de passe sécurisés.
 Manipulation avancée des chaînes : génération d'initiales, extraction d'extensions, et plus encore.
-Support de l'internationalisation (i18n) pour les formats régionaux.
+'
 Génération et validation d'identifiants uniques.
 Installation
 Ajoutez le package à votre projet Flutter/Dart via pub.dev :
 
 flutter pub add tformatters
-Ou modifiez directement votre fichier pubspec.yaml :
 
 
 dependencies:
-tformatters: ^1.0.0
+tformatters: ^0.0.4
 Puis, exécutez :
 
 
 
 1. Formatage des Dates et Heures
 
-   import 'package:h_formatters/h_formatters.dart';
+   import 'package:tformatters/tformatters.dart';
 
 void main() {
 final now = DateTime.now();
@@ -37,9 +36,10 @@ print(TFormatters.formatDate(now, pattern: 'dd/MM/yyyy', locale: 'fr_FR'));
 // Formatage de l'heure
 print(TFormatters.formatHour(now));
 // Résultat : 14:30:15
-} 2. Formatage des Montants et Pourcentages
-dart
-Copier le code
+}
+
+2. Formatage des Montants et Pourcentages
+
 void main() {
 // Formatage d'un montant avec devise
 print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'));
@@ -48,7 +48,9 @@ print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'
 // Formatage en pourcentage
 print(TFormatters.formatPercentage(0.875));
 // Résultat : 87.50%
-} 3. Validation des Entrées
+}
+
+3. Validation des Entrées
 
 
 
@@ -67,8 +69,7 @@ void main() {
 }
 
 4. Manipulation des Chaînes
-dart
-Copier le code
+
 void main() {
   // Génération d'initiales
   print(TFormatters.generateInitials('John Doe'));
@@ -83,8 +84,7 @@ void main() {
   // Résultat : pdf
 }
 5. Gestion des Durées
-dart
-Copier le code
+
 void main() {
   final duration = Duration(hours: 2, minutes: 30);
 
@@ -93,8 +93,7 @@ void main() {
   // Résultat : 2 heures 30 minutes
 }
 6. Fonctionnalités Diverses
-dart
-Copier le code
+
 void main() {
   // Masquage de données sensibles
   print(TFormatters.maskSensitiveData('1234567890', visibleChars: 4));
@@ -108,18 +107,7 @@ void main() {
   print(TFormatters.toHyperlink('Google', 'https://google.com'));
   // Résultat : <a href="https://google.com">Google</a>
 }
-Internationalisation (i18n)
-Le package prend en charge les formats locaux pour les dates, heures, et montants grâce à la bibliothèque intl.
 
-Exemple :
-
-void main() {
-  final now = DateTime.now();
-
-  // Formatage de la date dans différentes locales
-  print(TFormatters.formatDate(now, locale: 'en_US')); // Résultat : January 4, 2025
-  print(TFormatters.formatDate(now, locale: 'fr_FR')); // Résultat : 4 janvier 2025
-}
 Liste Complète des Méthodes
 Formatage
 formatDate(DateTime date, {String pattern, String locale})
