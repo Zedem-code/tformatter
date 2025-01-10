@@ -9,7 +9,7 @@ A powerful Flutter/Dart package for formatting, validation, and manipulation of 
 - Generation and validation of unique identifiers.
 - Credit Card Validation
 
-### 1. Formatting Dates and Times
+### 1. Formatting
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -21,18 +21,22 @@ final now = DateTime.now();
 print(TFormatters.formatDate(now, pattern: 'dd/MM/yyyy', locale: 'fr_FR'));
 // Résultat : 04/01/2025
 
-// Formatage de l'heure
+// Format hour
 print(TFormatters.formatHour(now));
 // Résultat : 14:30:15
-}
-```
 
-### 2. Formatting Amounts and Percentages
+//Readable formatting: "X days ago", "X hours ago".
+print(TFormatters.timeAgo(DateTime.now().subtract(Duration(days: 2))))
+// Resultat: 2 jours
 
-```dart
-import 'package:tformatter/tformatter.dart';
+//Format durations in hours and minutes.
+print(TFormatters.formatDuration(Duration(hours: 1, minutes: 50)))
+// Resultat: 1h 50m 0s
 
-void main() {
+// Format address
+print(TFormatters.formatAddress("Av De l'eglise", 'Butembo', 'DRC'))
+// Resultat: Av De l'eglise, Butembo, DRC
+
 // Formatage d'un montant avec devise
 print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'));
 // Résultat : 1 234,56 €
@@ -40,10 +44,18 @@ print(TFormatters.formatCurrency(1234.56, locale: 'fr_FR', currencySymbol: '€'
 // Formatage en pourcentage
 print(TFormatters.formatPercentage(0.875));
 // Résultat : 87.50%
+
+//Standardization of Spaces
+print(TFormatters.normalizeSpaces("Multiple\n\nnewlines \n and tabs\t\t"))
+//Resultat: Multiple newlines and tabs
+
+// Format phone number
+print(TFormatters.formatPhoneNumber('0123456789','###-###-####'))
+// Resultat: (0) 123-456-789
 }
 ```
 
-### 3. Validating Inputs
+### 2. Validating Inputs
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -63,7 +75,7 @@ print(TFormatters.isValidPassword('StrongP@ss1'));
 }
 ```
 
-### 4. Manipulating Strings
+### 3. Manipulating Strings
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -83,21 +95,21 @@ print(TFormatters.getFileExtension('document.pdf'));
 }
 ```
 
-### 5. Managing Durations
+### 4. Managing Durations
 
 ```dart
 import 'package:tformatter/tformatter.dart';
 
 void main() {
-final duration = Duration(hours: 2, minutes: 30);
+final duration = Duration(hours: 2, minutes: 30,seconds:10);
 
 // Conversion d'une durée en texte lisible
-print(TFormatters.durationToReadableText(duration));
-// Résultat : 2 heures 30 minutes
+print(TFormatters.formatDuration(duration));
+// Résultat : 2h 30m 10s
 }
 ```
 
-### 6. Miscellaneous Features
+### 5. Miscellaneous Features
 
 ```dart
 import 'package:tformatter/tformatter.dart';
@@ -114,9 +126,9 @@ print(TFormatters.formatFileSize(1048576));
 }
 ```
 
-### 7. Direct Formatting in Text Fields
+### 6. Direct Formatting in Text Fields
 
-Le package inclut des **`TextInputFormatters`** pour ajouter des masquages ou formatages dynamiques directement dans les champs de texte.
+The package includes **`TextInputFormatters`** to add dynamic masking or formatting directly to text fields.
 
 #### Exemple : Currency Formatter
 
@@ -148,6 +160,20 @@ labelText: 'Numéro de carte',
 ),
 keyboardType: TextInputType.number,
 );
+```
+
+### 7. Credit card validation
+
+```dart
+void main() {
+  // Numéros de test
+  final validCard = '4539 1488 0343 6467'; // Carte valide (Visa)
+  final invalidCard = '1234 5678 9012 3456'; // Carte invalide
+
+  // Validation
+  print(isValidCreditCard(validCard)); // Résultat : true
+  print(isValidCreditCard(invalidCard)); // Résultat : false
+}
 ```
 
 ### 8. Complete List of Methods
@@ -183,4 +209,6 @@ formatPhoneNumber(String phoneNumber);
 isValidCreditCard(String cardNumber)
 detectDataType(String input)
 getCardType(String cardNumber)
+formatNumberShortcut(double value)
+...
 ```

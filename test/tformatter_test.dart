@@ -4,11 +4,12 @@ import 'package:tformatter/tformatter.dart';
 
 void main() {
   test('formats phone number correctly', () {
-    final phone = TFormatters.formatPhoneNumber('0123456789');
+    final phone =
+        TFormatters.formatPhoneNumber('0123456789', '(#) ###-###-###');
     expect(phone, '(0) 123-456-789');
   });
 
-  test('Validate phone numbe', () {
+  test('Validate phone number', () {
     final isValid = TFormatters.isValidPhoneNumber('+0123456789');
     expect(isValid, true);
   });
@@ -34,7 +35,7 @@ void main() {
   test('formats date difference', () {
     final start = DateTime(2025, 1, 1);
     final end = DateTime(2025, 1, 4);
-    final diff = TFormatters.dateDifference(start, end);
+    final diff = TFormatters.dateDifference(start, end, locale: 'fr');
     expect(diff, '3 jours');
   });
 
@@ -102,5 +103,31 @@ void main() {
   test('validates secure password', () {
     expect(TFormatters.isValidPassword('StrongP@ssw0rd'), true);
     expect(TFormatters.isValidPassword('weakpass'), false);
+  });
+
+  test('format address', () {
+    final street = "Av De l'eglise";
+    final city = 'Butembo';
+    final country = "DRC";
+    final adress = TFormatters.formatAddress(street, city, country);
+    expect(adress, "Av De l'eglise, Butembo, DRC");
+  });
+
+  test('shorted number', () {
+    expect(TFormatters.formatNumberShortcut(1000000), '1.0M');
+  });
+
+  test('format a list', () {
+    final items = ['Alice', 'Bob', 'Charlie'];
+    final listPersons = TFormatters.formatList(items);
+    expect(listPersons, 'Alice, Bob and Charlie');
+  });
+
+  test('validate the date', () {
+    expect(TFormatters.isValidDate('2025-01-09 18:00:00'), true);
+  });
+
+  test('validate credit card', () {
+    expect(TFormatters.isValidCreditCard('4539 1488 0343 6467'), true);
   });
 }
