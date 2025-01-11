@@ -42,7 +42,7 @@ void main() {
   test('calculate time ago', () {
     final past = DateTime.now().subtract(Duration(days: 2));
     final ago = TFormatters.timeAgo(past);
-    expect(ago, '2 jours');
+    expect(ago, '2 days');
   });
 
   test('format number shortcuts', () {
@@ -83,14 +83,12 @@ void main() {
 
   test('extracts email domain', () {
     expect(TFormatters.extractEmailDomain('test@example.com'), 'example.com');
-    expect(TFormatters.extractEmailDomain('invalid-email'),
-        'Adresse e-mail invalide');
+    expect(TFormatters.extractEmailDomain('invalid-email'), 'invalid_email');
   });
 
   test('gets file extension', () {
     expect(TFormatters.getFileExtension('document.pdf'), 'pdf');
-    expect(
-        TFormatters.getFileExtension('document'), 'Aucune extension détectée');
+    expect(TFormatters.getFileExtension('document'), 'No extension found');
   });
 
   test('formats JSON to readable text', () {

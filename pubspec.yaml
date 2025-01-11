@@ -1,6 +1,6 @@
 name: tformatter
 description: "A powerful Flutter/Dart package for formatting, validation, and manipulation of common data types such as dates, times, currencies, phone numbers, and more."
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/Zedem-code/tformatter
 
 environment:

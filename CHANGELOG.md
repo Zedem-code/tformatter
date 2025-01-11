@@ -1,3 +1,9 @@
+## 0.2.1
+
+### Fixed
+
+- Cursor issue in CurrencyInputFormatter.
+
 ## 0.2.0
 
 ### Added
