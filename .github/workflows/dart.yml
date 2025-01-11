@@ -49,6 +49,3 @@ jobs:
       - name: Notify on Failure
         if: failure()
         run: echo "Tests failed. Please check the pipeline logs."
-
-      - name: Run tests
-        run: dart test
